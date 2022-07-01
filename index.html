@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Counter</title>
+		<link rel="stylesheet" href="style.css" />
+		<script
+			src="https://kit.fontawesome.com/e306afbf76.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<div class="counter_container">
+			<h1>My Counter</h1>
+			<div class="counter">
+				<p id="count">0</p>
+				<div class="btns">
+					<button id="decrease" value="decrease">Decrease</button>
+					<button id="reset" value="reset">Reset</button>
+					<button id="increase" value="increase">Increase</button>
+				</div>
+			</div>
+		</div>
+		<div id="iamadev">
+			<a href="https://github.com/devAbdulsalam"
+				><p>!<span>Your</span>regular<span>Dev</span>.js</p>
+			</a>
+		</div>
+		<script>
+			const btns = document.querySelectorAll("button");
+			const value = document.getElementById("count");
+
+			let count = document.getElementById("count");
+			btns.forEach((button) => {
+				button.addEventListener("click", (e) => {
+					let countContent = Number(count.textContent);
+					if (e.currentTarget.value == "increase") {
+						countContent++;
+						if (countContent >= 1) {
+							value.style.color = "green";
+						}
+					} else if (e.currentTarget.value == "decrease") {
+						countContent--;
+						if (countContent <= 1) {
+							value.style.color = "red";
+						}
+					} else {
+						countContent = 0;
+						value.style.color = "black";
+					}
+					count.textContent = countContent;
+				});
+			});
+		</script>
+	</body>
+</html>
